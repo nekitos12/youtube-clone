@@ -9,6 +9,7 @@ type YoutubeVideoItem = {
   snippet: {
     title: string
     description: string
+    channelId: string
     channelTitle: string
     publishedAt: string
     thumbnails: {
@@ -39,6 +40,7 @@ export function mapYoutubeVideo(item: YoutubeVideoItem): Video {
     id: item.id,
     title: item.snippet.title,
     description: item.snippet.description,
+    channelId: item.snippet.channelId,
     channelTitle: item.snippet.channelTitle,
     thumbnailUrl:
       thumbnails.maxres?.url ??

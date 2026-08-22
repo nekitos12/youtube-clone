@@ -1,4 +1,5 @@
 import { getVideoById } from '@/entities/video'
+import Link from 'next/link'
 
 type WatchPageProps = {
   params: Promise<{ id: string }>
@@ -23,7 +24,12 @@ export default async function WatchPage({ params }: WatchPageProps) {
       {video && (
         <>
           <h1 className="mt-4 text-xl font-semibold tracking-tight">{video.title}</h1>
-          <p className="mt-1 text-sm text-neutral-400">{video.channelTitle}</p>
+          <Link
+            href={`/channel/${video.channelId}`}
+            className="mt-1 inline-block text-sm text-neutral-400 hover:text-white"
+          >
+            {video.channelTitle}
+          </Link>
         </>
       )}
     </main>
