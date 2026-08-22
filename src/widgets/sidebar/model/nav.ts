@@ -1,5 +1,9 @@
 export const SIDEBAR = {
   brand: 'YouTube Clone',
+  toggle: {
+    collapse: 'Свернуть',
+    expand: 'Развернуть',
+  },
   sections: [
     {
       id: 'main',
