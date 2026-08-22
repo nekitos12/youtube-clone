@@ -2,5 +2,8 @@ export type Video = {
   id: string
   title: string
   description: string
-  createdAt: string
+  channelTitle: string
+  thumbnailUrl: string
+  publishedAt: string
+  viewCount?: string
 }

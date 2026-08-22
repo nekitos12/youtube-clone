@@ -1,1 +1,5 @@
 export type { Video } from './model/types'
+export type { YoutubeQuery } from './api/youtube-client'
+export { getPopularVideos, getVideoById } from './api/youtube-client'
+export { loadPopularVideos } from './api/load-popular-videos'
+export { VideoCard } from './ui/video-card'
