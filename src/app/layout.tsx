@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { Sidebar } from '@/widgets/sidebar'
 import { Providers } from './providers'
 import './globals.css'
 
@@ -19,8 +20,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`${inter.className} antialiased`}>
-        <Providers>{children}</Providers>
+      <body className={`${inter.className} min-h-screen bg-neutral-950 text-white antialiased`}>
+        <Providers>
+          <div className="flex min-h-screen">
+            <Sidebar />
+            <div className="min-w-0 flex-1">{children}</div>
+          </div>
+        </Providers>
       </body>
     </html>
   )
