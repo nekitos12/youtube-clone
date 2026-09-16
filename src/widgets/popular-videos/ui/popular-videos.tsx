@@ -1,6 +1,7 @@
 'use client'
 
-import { VideoCard, type Video, type YoutubeQuery } from '@/entities/video'
+import { VideoCardWithLike } from '@/features/like-video'
+import { type Video, type YoutubeQuery } from '@/entities/video'
 import { VirtualList } from '@/shared/ui/virtual-list'
 import { usePopularVideos } from '../model/use-popular-videos'
 
@@ -62,7 +63,7 @@ export function PopularVideos({ initialPage }: PopularVideosProps) {
             style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}
           >
             {row.map((video) => (
-              <VideoCard key={video.id} video={video} />
+              <VideoCardWithLike key={video.id} video={video} />
             ))}
           </div>
         )

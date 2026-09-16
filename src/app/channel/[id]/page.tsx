@@ -1,5 +1,5 @@
 import { ChannelHeader, getChannelById, getChannelVideos } from '@/entities/channel'
-import { VideoCard } from '@/entities/video'
+import { VideoCardWithLike } from '@/features/like-video'
 import { notFound } from 'next/navigation'
 
 type ChannelPageProps = {
@@ -41,7 +41,7 @@ export default async function ChannelPage({ params }: ChannelPageProps) {
       <ul className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {videosResult.videos.map((video) => (
           <li key={video.id}>
-            <VideoCard video={video} />
+            <VideoCardWithLike video={video} />
           </li>
         ))}
       </ul>
