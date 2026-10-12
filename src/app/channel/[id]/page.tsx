@@ -1,5 +1,6 @@
 import { ChannelHeader, getChannelById, getChannelVideos } from '@/entities/channel'
 import { VideoCardWithLike } from '@/features/like-video'
+import { SubscribeButton } from '@/features/subscribe-channel'
 import { notFound } from 'next/navigation'
 
 type ChannelPageProps = {
@@ -29,7 +30,10 @@ export default async function ChannelPage({ params }: ChannelPageProps) {
 
   return (
     <main className="px-6 py-8">
-      <ChannelHeader channel={channel} />
+      <ChannelHeader
+        channel={channel}
+        actions={<SubscribeButton channel={channel} />}
+      />
 
       <h2 className="mt-8 mb-4 text-lg font-semibold tracking-tight">Видео</h2>
       {videosResult.error && (

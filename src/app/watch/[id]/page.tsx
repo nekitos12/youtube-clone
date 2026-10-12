@@ -1,4 +1,5 @@
 import { LikeButton } from '@/features/like-video'
+import { SubscribeButton } from '@/features/subscribe-channel'
 import { getVideoById } from '@/entities/video'
 import Link from 'next/link'
 
@@ -26,12 +27,22 @@ export default async function WatchPage({ params }: WatchPageProps) {
         <div className="mt-4 flex items-start justify-between gap-4">
           <div>
             <h1 className="text-xl font-semibold tracking-tight">{video.title}</h1>
-            <Link
-              href={`/channel/${video.channelId}`}
-              className="mt-1 inline-block text-sm text-neutral-400 hover:text-white"
-            >
-              {video.channelTitle}
-            </Link>
+            <div className="mt-2 flex flex-wrap items-center gap-3">
+              <Link
+                href={`/channel/${video.channelId}`}
+                className="text-sm text-neutral-400 hover:text-white"
+              >
+                {video.channelTitle}
+              </Link>
+              <SubscribeButton
+                channel={{
+                  id: video.channelId,
+                  title: video.channelTitle,
+                  avatarUrl: '',
+                  description: '',
+                }}
+              />
+            </div>
           </div>
           <LikeButton video={video} variant="toolbar" />
         </div>

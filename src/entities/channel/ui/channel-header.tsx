@@ -1,8 +1,10 @@
 import Image from 'next/image'
+import type { ReactNode } from 'react'
 import type { Channel } from '../model/types'
 
 type ChannelHeaderProps = {
   channel: Channel
+  actions?: ReactNode
 }
 
 function formatCount(value?: string) {
@@ -10,7 +12,7 @@ function formatCount(value?: string) {
   return new Intl.NumberFormat('ru-RU').format(Number(value))
 }
 
-export function ChannelHeader({ channel }: ChannelHeaderProps) {
+export function ChannelHeader({ channel, actions }: ChannelHeaderProps) {
   const subscribers = formatCount(channel.subscriberCount)
   const videos = formatCount(channel.videoCount)
 
@@ -38,13 +40,18 @@ export function ChannelHeader({ channel }: ChannelHeaderProps) {
             className="size-20 shrink-0 rounded-full bg-neutral-800 sm:size-24"
           />
         )}
-        <div className="min-w-0">
-          <h1 className="text-2xl font-semibold tracking-tight">{channel.title}</h1>
-          <p className="mt-1 text-sm text-neutral-400">
-            {[subscribers && `${subscribers} подписчиков`, videos && `${videos} видео`]
-              .filter(Boolean)
-              .join(' · ')}
-          </p>
+        <div className="min-w-0 flex-1">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div className="min-w-0">
+              <h1 className="text-2xl font-semibold tracking-tight">{channel.title}</h1>
+              <p className="mt-1 text-sm text-neutral-400">
+                {[subscribers && `${subscribers} подписчиков`, videos && `${videos} видео`]
+                  .filter(Boolean)
+                  .join(' · ')}
+              </p>
+            </div>
+            {actions}
+          </div>
           {channel.description && (
             <p className="mt-3 line-clamp-3 text-sm text-neutral-300">{channel.description}</p>
           )}
