@@ -50,7 +50,7 @@ export function getPopularVideos(pageToken?: string) {
   return fetchYoutubeVideos({
     chart: 'mostPopular',
     maxResults: '24',
-    regionCode: 'RU',
+    regionCode: 'US',
     ...(pageToken ? { pageToken } : {}),
   })
 }
