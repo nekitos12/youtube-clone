@@ -41,7 +41,7 @@ export function PopularVideos({ initialPage }: PopularVideosProps) {
   }
 
   if (videos.length === 0) {
-    return <p className="text-sm text-neutral-400">Популярные видео пока недоступны.</p>
+    return <p className="text-sm text-neutral-400">Trending videos are unavailable right now.</p>
   }
 
   return (

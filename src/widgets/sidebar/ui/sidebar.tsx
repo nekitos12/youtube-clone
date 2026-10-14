@@ -8,8 +8,7 @@ import { useSidebarStore } from '../model/use-sidebar-store'
 import { BrandIcon, NavIcon } from './nav-icon'
 
 function isActivePath(pathname: string, href: string) {
-  if (href === '/') return pathname === '/'
-  return pathname === href || pathname.startsWith(`${href}/`)
+  return pathname === href
 }
 
 export function Sidebar() {

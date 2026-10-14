@@ -1,25 +1,26 @@
 export const SIDEBAR = {
   brand: 'YouTube Clone',
   toggle: {
-    collapse: 'Свернуть',
-    expand: 'Развернуть',
+    collapse: 'Collapse',
+    expand: 'Expand',
   },
   sections: [
     {
       id: 'main',
       title: null,
       items: [
-        { href: '/', label: 'Главная', icon: 'home' },
-        { href: '/subscriptions', label: 'Подписки', icon: 'subscriptions' },
+        { href: '/', label: 'Home', icon: 'home' },
+        { href: '/subscriptions', label: 'Subscriptions', icon: 'subscriptions' },
       ],
     },
     {
       id: 'library',
-      title: 'Вы',
+      title: 'You',
       items: [
-        { href: '/history', label: 'История', icon: 'history' },
-        { href: '/liked', label: 'Понравившиеся', icon: 'liked' },
-        { href: '/videos/create', label: 'Загрузить видео', icon: 'upload' },
+        { href: '/history', label: 'History', icon: 'history' },
+        { href: '/liked', label: 'Liked', icon: 'liked' },
+        { href: '/videos', label: 'My videos', icon: 'videos' },
+        { href: '/videos/create', label: 'Upload', icon: 'upload' },
       ],
     },
   ],

@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ru">
+    <html lang="en">
       <body className={`${inter.className} min-h-screen bg-neutral-950 text-white antialiased`}>
         <Providers>
           <div className="flex min-h-screen">

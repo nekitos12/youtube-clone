@@ -9,7 +9,7 @@ type ChannelHeaderProps = {
 
 function formatCount(value?: string) {
   if (!value) return null
-  return new Intl.NumberFormat('ru-RU').format(Number(value))
+  return new Intl.NumberFormat('en-US').format(Number(value))
 }
 
 export function ChannelHeader({ channel, actions }: ChannelHeaderProps) {
@@ -45,7 +45,7 @@ export function ChannelHeader({ channel, actions }: ChannelHeaderProps) {
             <div className="min-w-0">
               <h1 className="text-2xl font-semibold tracking-tight">{channel.title}</h1>
               <p className="mt-1 text-sm text-neutral-400">
-                {[subscribers && `${subscribers} подписчиков`, videos && `${videos} видео`]
+                {[subscribers && `${subscribers} subscribers`, videos && `${videos} videos`]
                   .filter(Boolean)
                   .join(' · ')}
               </p>

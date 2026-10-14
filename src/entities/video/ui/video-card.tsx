@@ -19,7 +19,7 @@ export function VideoCard({ video }: VideoCardProps) {
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
         </div>
-        <h3 className="mt-3 line-clamp-2 text-sm font-medium leading-snug text-white group-hover:text-neutral-200">
+        <h3 className="mt-3 min-h-[2.5rem] line-clamp-2 text-sm font-medium leading-snug text-white group-hover:text-neutral-200">
           {video.title}
         </h3>
       </Link>

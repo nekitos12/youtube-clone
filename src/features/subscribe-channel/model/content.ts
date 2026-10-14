@@ -1,10 +1,10 @@
 export const SUBSCRIBE_BUTTON = {
-  subscribe: 'Подписаться',
-  subscribed: 'Вы подписаны',
+  subscribe: 'Subscribe',
+  subscribed: 'Subscribed',
 } as const
 
 export const SUBSCRIPTIONS_PAGE = {
-  title: 'Подписки',
-  empty: 'Пока нет подписок. Нажмите «Подписаться» на странице канала.',
-  loading: 'Загрузка...',
+  title: 'Subscriptions',
+  empty: 'No subscriptions yet. Tap Subscribe on a channel page.',
+  loading: 'Loading...',
 } as const

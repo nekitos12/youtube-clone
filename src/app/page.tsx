@@ -8,7 +8,7 @@ export default async function HomePage() {
 
   return (
     <main className="flex h-screen flex-col px-6 py-8">
-      <h1 className="mb-6 shrink-0 text-2xl font-semibold tracking-tight">В тренде</h1>
+      <h1 className="mb-6 shrink-0 text-2xl font-semibold tracking-tight">Trending</h1>
       <PopularVideos initialPage={initialPage} />
     </main>
   )

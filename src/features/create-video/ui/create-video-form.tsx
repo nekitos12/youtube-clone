@@ -1,36 +1,36 @@
 'use client'
 
 import { TextField } from '@/shared/ui/text-field'
-import { CREATE_VIDEO_FORM_ACTIONS, CREATE_VIDEO_FORM_FIELDS } from '../model/form-content'
+import { CREATE_VIDEO_FORM_ACTIONS, CREATE_VIDEO_FORM_FIELDS, CREATE_VIDEO_MESSAGES } from '../model/form-content'
 import { useCreateVideoForm } from '../model/use-create-video-form'
 
 export function CreateVideoForm() {
-  const { form, onSubmit, isSubmitting } = useCreateVideoForm()
+  const { form, onSubmit, status, errorMessage, isSubmitting } = useCreateVideoForm()
   const {
     register,
     formState: { errors },
   } = form
 
-  const titleField = CREATE_VIDEO_FORM_FIELDS.title
-  const descriptionField = CREATE_VIDEO_FORM_FIELDS.description
+  const urlField = CREATE_VIDEO_FORM_FIELDS.url
 
   return (
     <form onSubmit={onSubmit} className="flex max-w-2xl flex-col gap-6">
-      <TextField
-        label={titleField.label}
-        type={titleField.type}
-        placeholder={titleField.placeholder}
-        error={errors[titleField.name]?.message}
-        {...register(titleField.name, titleField.validation)}
-      />
+      {status === 'success' && (
+        <p className="rounded-lg border border-emerald-800 bg-emerald-950/40 px-4 py-3 text-sm text-emerald-300">
+          {CREATE_VIDEO_MESSAGES.success}
+        </p>
+      )}
+      {status === 'error' && (
+        <p className="rounded-lg border border-red-900 bg-red-950/40 px-4 py-3 text-sm text-red-300">
+          {errorMessage ?? CREATE_VIDEO_MESSAGES.error}
+        </p>
+      )}
 
       <TextField
-        multiline
-        label={descriptionField.label}
-        rows={descriptionField.rows}
-        placeholder={descriptionField.placeholder}
-        error={errors[descriptionField.name]?.message}
-        {...register(descriptionField.name, descriptionField.validation)}
+        label={urlField.label}
+        placeholder={urlField.placeholder}
+        error={errors.url?.message}
+        {...register(urlField.name)}
       />
 
       <button

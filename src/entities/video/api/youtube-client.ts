@@ -16,7 +16,7 @@ async function fetchYoutubeVideos(params: Record<string, string>): Promise<Youtu
     return {
       videos: [],
       nextPageToken: null,
-      error: 'Не задан YOUTUBE_API_KEY. Добавьте ключ YouTube Data API v3 в .env',
+      error: 'YOUTUBE_API_KEY is missing. Add a YouTube Data API v3 key to .env',
     }
   }
 
@@ -35,7 +35,7 @@ async function fetchYoutubeVideos(params: Record<string, string>): Promise<Youtu
     return {
       videos: [],
       nextPageToken: null,
-      error: data.error?.message ?? 'Не удалось загрузить видео с YouTube',
+      error: data.error?.message ?? 'Failed to load videos from YouTube',
     }
   }
 

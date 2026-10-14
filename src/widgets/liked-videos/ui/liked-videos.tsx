@@ -12,19 +12,19 @@ export function LikedVideos() {
   }, [])
 
   if (!ready) {
-    return <p className="text-sm text-neutral-400">Загрузка...</p>
+    return <p className="text-sm text-neutral-400">Loading...</p>
   }
 
   if (videos.length === 0) {
     return (
       <p className="text-sm text-neutral-400">
-        Пока нет понравившихся. Нажмите на палец вверх на превью, чтобы сохранить видео.
+        No liked videos yet. Tap the thumbs up on a thumbnail to save a video.
       </p>
     )
   }
 
   return (
-    <ul className="grid grid-cols-2 gap-x-4 gap-y-8 max-sm:!grid-cols-1 lg:!grid-cols-3 xl:!grid-cols-4">
+    <ul className="video-card-grid">
       {videos.map((video) => (
         <li key={video.id}>
           <VideoCardWithLike video={video} />

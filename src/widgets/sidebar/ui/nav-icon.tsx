@@ -1,4 +1,4 @@
-import { History, Home, Play, ThumbsUp, Upload, Users } from 'lucide-react'
+import { Clapperboard, History, Home, Play, ThumbsUp, Upload, Users } from 'lucide-react'
 import type { SidebarIconName } from '../model/nav'
 
 const icons = {
@@ -6,6 +6,7 @@ const icons = {
   subscriptions: Users,
   history: History,
   liked: ThumbsUp,
+  videos: Clapperboard,
   upload: Upload,
 } satisfies Record<SidebarIconName, typeof Home>
 

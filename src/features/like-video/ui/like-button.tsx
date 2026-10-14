@@ -30,7 +30,7 @@ export function LikeButton({ video, variant = 'overlay' }: LikeButtonProps) {
         toggleLike(video)
       }}
       aria-pressed={liked}
-      aria-label={liked ? 'Убрать из понравившихся' : 'Добавить в понравившиеся'}
+      aria-label={liked ? 'Remove from liked videos' : 'Add to liked videos'}
       className={
         variant === 'toolbar'
           ? `flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 text-sm transition-colors ${

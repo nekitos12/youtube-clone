@@ -44,7 +44,7 @@ async function youtubeFetch<T>(path: string, params: Record<string, string>): Pr
   const apiKey = process.env.YOUTUBE_API_KEY
 
   if (!apiKey) {
-    return { error: { message: 'Не задан YOUTUBE_API_KEY. Добавьте ключ YouTube Data API v3 в .env' } }
+    return { error: { message: 'YOUTUBE_API_KEY is missing. Add a YouTube Data API v3 key to .env' } }
   }
 
   const url = new URL(`${YOUTUBE_API}/${path}`)
@@ -58,7 +58,7 @@ async function youtubeFetch<T>(path: string, params: Record<string, string>): Pr
   const data = (await response.json()) as T & { error?: { message: string } }
 
   if (!response.ok || data.error) {
-    return { error: { message: data.error?.message ?? 'Не удалось загрузить данные канала' } }
+    return { error: { message: data.error?.message ?? 'Failed to load channel data' } }
   }
 
   return data
@@ -76,7 +76,7 @@ export async function getChannelById(id: string): Promise<ChannelQuery> {
 
   const item = 'items' in data ? data.items?.[0] : undefined
   if (!item) {
-    return { channel: null, error: 'Канал не найден' }
+    return { channel: null, error: 'Channel not found' }
   }
 
   return { channel: mapYoutubeChannel(item), error: null }

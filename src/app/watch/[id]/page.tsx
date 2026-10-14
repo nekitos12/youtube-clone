@@ -1,5 +1,6 @@
 import { LikeButton } from '@/features/like-video'
 import { SubscribeButton } from '@/features/subscribe-channel'
+import { RecordWatchHistory } from '@/features/watch-history'
 import { getVideoById } from '@/entities/video'
 import Link from 'next/link'
 
@@ -16,7 +17,7 @@ export default async function WatchPage({ params }: WatchPageProps) {
     <main className="mx-auto max-w-6xl px-6 py-8">
       <div className="aspect-video overflow-hidden rounded-xl bg-black">
         <iframe
-          title={video?.title ?? 'Видео'}
+          title={video?.title ?? 'Video'}
           src={`https://www.youtube.com/embed/${id}?autoplay=1`}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
@@ -25,6 +26,7 @@ export default async function WatchPage({ params }: WatchPageProps) {
       </div>
       {video && (
         <div className="mt-4 flex items-start justify-between gap-4">
+          <RecordWatchHistory video={video} />
           <div>
             <h1 className="text-xl font-semibold tracking-tight">{video.title}</h1>
             <div className="mt-2 flex flex-wrap items-center gap-3">
